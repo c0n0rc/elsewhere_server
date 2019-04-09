@@ -10,6 +10,9 @@
     "type": "git",
     "url": "git+https://github.com/c0n0rc/elsewhere_server.git"
   },
+  "scripts": {
+    "start": "node app.js"
+  },
   "author": "",
   "license": "ISC",
   "bugs": {
