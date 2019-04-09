@@ -1,0 +1,25 @@
+{
+  "name": "elsewhere-server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/c0n0rc/elsewhere_server.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/c0n0rc/elsewhere_server/issues"
+  },
+  "homepage": "https://github.com/c0n0rc/elsewhere_server#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "cors": "^2.8.5",
+    "express": "^4.16.4",
+    "path": "^0.12.7"
+  }
+}

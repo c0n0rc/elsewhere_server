@@ -1,0 +1,3 @@
+- Add correct responses in handlers
+- Update app state
+- Choose between express-validator and ajv
