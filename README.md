@@ -6,3 +6,7 @@ In the project directory, you can run:
 
 Runs the app in the development mode.<br>
 Make requests to http://localhost:3003/api/v1
+
+With the server running, for API testing, you can run:
+
+`npm test`
