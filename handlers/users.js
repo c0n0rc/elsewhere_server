@@ -1,21 +1,19 @@
-// Handlers for /user routes
+// Authenticate an existing user
+exports.authenticateUser = function (req, res, next) {
+  next();
+}
 
-// Create user
+// Create a new user
 exports.createUser = function (req, res, next) {
   next();
 }
 
-// Get user
-exports.getUser = function (req, res, next) {
-  next();
-}
-
-// Update user
+// Update an existing user
 exports.updateUser = function (req, res, next) {
   next();
 }
 
-// Delete user
+// Delete an existing user
 exports.deleteUser = function (req, res, next) {
   next();
 }

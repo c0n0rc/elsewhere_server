@@ -1,26 +1,54 @@
 const path  = require('path');
 const express = require('express');
 const router = express.Router();
+
 const handlers = require(path.join(__dirname, '../handlers/users.js'));
+const middleware = require(path.join(__dirname, '../middleware/users.js'));
 
-// Get user
-router.get('/users/:userID', [handlers.getUser], function (req, res) {
-  res.send('Hello World!');
-});
+// Authenticate an existing user
+router.post('/users/authenticate',
+  [
+    middleware.validateAuthUserBody,
+    handlers.authenticateUser
+  ],
+  function (req, res) {
+    res.send('POST /users/authenticate');
+  }
+);
 
-// Create user
-router.post('/users', [handlers.createUser], function (req, res) {
-  res.send('Hello World!');
-});
+// Create a new user
+router.post('/users',
+  [
+    middleware.validateCreateUserBody, 
+    handlers.createUser
+  ],
+  function (req, res) {
+    res.send('POST /users');
+  }
+);
 
-// Update user
-router.post('/users/:userID', [handlers.updateUser], function (req, res) {
-  res.send('Hello World!');
-});
+// Update an existing user
+router.patch('/users/:userID',
+  [
+    middleware.validateUserIDParam,
+    middleware.validateUpdateUserBody,
+    handlers.updateUser
+  ],
+  function (req, res) {
+    res.send('PATCH /users/:userID');
+  }
+);
 
-// Delete user
-router.delete('/users/:userID', [handlers.deleteUser], function (req, res) {
-  res.send('Hello World!');
-});
+// Delete an existing user
+router.delete('/users/:userID',
+  [
+    middleware.validateUserIDParam,
+    middleware.validateDeleteUserBody,
+    handlers.deleteUser
+  ],
+  function (req, res) {
+    res.send('DELETE /users/:userID');
+  }
+);
 
 module.exports = router;

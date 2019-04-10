@@ -1,19 +1,17 @@
 {
   "name": "elsewhere-server",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "version": "0.1.0",
+  "description": "Backend for the Elsewhere travel app",
+  "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jasmine-node spec",
+    "start": "node app.js"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/c0n0rc/elsewhere_server.git"
   },
-  "scripts": {
-    "start": "node app.js"
-  },
-  "author": "",
+  "author": "Elsewhere Travel",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/c0n0rc/elsewhere_server/issues"
@@ -23,6 +21,8 @@
     "body-parser": "^1.18.3",
     "cors": "^2.8.5",
     "express": "^4.16.4",
-    "path": "^0.12.7"
+    "jasmine-node": "^1.16.2",
+    "path": "^0.12.7",
+    "request": "^2.88.0"
   }
 }

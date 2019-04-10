@@ -1,4 +1,10 @@
-- Update package.json
+- Add morgan 
+- Add winston
 - Add correct responses in handlers
-- Update app state
-- Choose between express-validator and ajv
+- Add token creation
+- Instead of expecting passwords in schemas, expect tokens
+- Add password hashing
+- Set up sqlite db for user accounts
+- Add linter
+- Read from configs
+- Reference schemas better
