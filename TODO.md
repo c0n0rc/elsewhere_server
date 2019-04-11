@@ -8,3 +8,6 @@
 - Add linter
 - Read from configs
 - Reference schemas better
+- Start up script
+- Build script 
+- Handle 404's

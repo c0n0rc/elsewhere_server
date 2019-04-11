@@ -14,7 +14,10 @@ describe('POST request to /users/authenticate', function() {
       }
     },
     function(error, response, body) {
-      expect(body).toEqual('POST /users/authenticate');
+      expect(response.statusCode).toEqual(200);
+      expect(body.error).toBeUndefined();
+      expect(body.message).toBeUndefined();
+      expect(body.token).toBeDefined();
       done();
     });
   });
@@ -31,7 +34,10 @@ describe('POST request to /users/authenticate', function() {
       }
     },
     function(error, response, body) {
-      expect(body).toEqual('POST /users/authenticate');
+      expect(response.statusCode).toEqual(422);
+      expect(body.token).toBeUndefined();
+      expect(body.message).toBeUndefined();
+      expect(body.error).toEqual('Error: Invalid request body fields. [{"keyword":"required","dataPath":"","schemaPath":"#/required","params":{"missingProperty":"email"},"message":"should have required property \'email\'"}]');
       done();
     });
   });
@@ -55,7 +61,10 @@ describe('POST request to /users', function() {
       }
     },
     function(error, response, body) {
-      expect(body).toEqual('POST /users');
+      expect(response.statusCode).toEqual(200);
+      expect(body.error).toBeUndefined();
+      expect(body.message).toBeUndefined();
+      expect(body.token).toBeDefined();
       done();
     });
   });
@@ -75,7 +84,10 @@ describe('POST request to /users', function() {
       }
     },
     function(error, response, body) {
-      expect(body).toEqual('POST /users');
+      expect(response.statusCode).toEqual(200);
+      expect(body.error).toBeUndefined();
+      expect(body.message).toBeUndefined();
+      expect(body.token).toBeDefined();
       done();
     });
   });  
@@ -94,7 +106,10 @@ describe('POST request to /users', function() {
       }
     },
     function(error, response, body) {
-      expect(body).toEqual('POST /users');
+      expect(response.statusCode).toEqual(422);
+      expect(body.token).toBeUndefined();
+      expect(body.message).toBeUndefined();
+      expect(body.error).toEqual('Error: Invalid request body fields. [{"keyword":"required","dataPath":"","schemaPath":"#/required","params":{"missingProperty":"email"},"message":"should have required property \'email\'"}]');
       done();
     });
   });  
@@ -118,7 +133,10 @@ describe('PATCH request to /users/:userID', function() {
       }
     },
     function(error, response, body) {
-      expect(body).toEqual('PATCH /users/:userID');
+      expect(response.statusCode).toEqual(200);
+      expect(body.error).toBeUndefined();
+      expect(body.message).toEqual('success');
+      expect(body.token).toBeUndefined();
       done();
     });
   });
@@ -137,7 +155,10 @@ describe('PATCH request to /users/:userID', function() {
       }
     },
     function(error, response, body) {
-      expect(body).toEqual('PATCH /users/:userID');
+      expect(response.statusCode).toEqual(200);
+      expect(body.error).toBeUndefined();
+      expect(body.message).toEqual('success');
+      expect(body.token).toBeUndefined();
       done();
     });
   });
@@ -157,7 +178,10 @@ describe('PATCH request to /users/:userID', function() {
       }
     },
     function(error, response, body) {
-      expect(body).toEqual('PATCH /users/:userID');
+      expect(response.statusCode).toEqual(422);
+      expect(body.token).toBeUndefined();
+      expect(body.message).toBeUndefined();
+      expect(body.error).toEqual('Error: Invalid request body fields. [{"keyword":"required","dataPath":"","schemaPath":"#/required","params":{"missingProperty":"password"},"message":"should have required property \'password\'"}]');
       done();
     });
   });
@@ -178,7 +202,10 @@ describe('DELETE request to /users/:userID', function() {
       }
     },
     function(error, response, body) {
-      expect(body).toEqual('DELETE /users/:userID');
+      expect(response.statusCode).toEqual(200);
+      expect(body.error).toBeUndefined();
+      expect(body.message).toEqual('success');
+      expect(body.token).toBeUndefined();
       done();
     });
   });
@@ -195,7 +222,10 @@ describe('DELETE request to /users/:userID', function() {
       }
     },
     function(error, response, body) {
-      expect(body).toEqual('DELETE /users/:userID');
+      expect(response.statusCode).toEqual(422);
+      expect(body.token).toBeUndefined();
+      expect(body.message).toBeUndefined();
+      expect(body.error).toEqual('Error: Invalid request body fields. [{"keyword":"required","dataPath":"","schemaPath":"#/required","params":{"missingProperty":"email"},"message":"should have required property \'email\'"}]');
       done();
     });
   });
