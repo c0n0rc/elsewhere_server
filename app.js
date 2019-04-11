@@ -2,6 +2,7 @@ const cors = require('cors');
 const path  = require('path');
 const express = require('express')
 const bodyParser = require('body-parser')
+const logger = require(path.join(__dirname, 'util/logger.js')).logger;
 
 // Routes
 const users = require(path.join(__dirname, 'routes/users.js'));
@@ -21,3 +22,5 @@ app.use('/api/' + version, users);
 // Listen on port
 const port = 3003;
 app.listen(port);
+
+logger.info('Server listening on port: ' + 3003);

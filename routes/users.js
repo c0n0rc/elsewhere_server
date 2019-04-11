@@ -8,18 +8,6 @@ const tokenMiddleware = require(path.join(__dirname, '../middleware/token.js'));
 const userHandler = require(path.join(__dirname, '../handlers/users.js'));
 const tokenHandler = require(path.join(__dirname, '../handlers/token.js'));
 
-// Update an existing user - 200 (success), 401 (not authorized), 422 (invalid body)
-router.post('/users/authenticate',
-  [
-    userMiddleware.validateUserReqBody,
-    userHandler.authenticateUser,
-    tokenHandler.createToken
-  ],
-  function (req, res) {
-    res.status(200).json({ 'token': 'token' });
-  }
-);
-
 // Create a new user - 201 (created), 409 (conflict), 422 (invalid body)
 router.post('/users',
   [
@@ -55,6 +43,18 @@ router.delete('/users/:userID',
   ],
   function (req, res) {
     res.status(200).json({ 'message': 'success' });
+  }
+);
+
+// Update an existing user - 200 (success), 401 (not authorized), 422 (invalid body)
+router.post('/users/authenticate',
+  [
+    userMiddleware.validateUserReqBody,
+    userHandler.authenticateUser,
+    tokenHandler.createToken
+  ],
+  function (req, res) {
+    res.status(200).json({ 'token': 'token' });
   }
 );
 

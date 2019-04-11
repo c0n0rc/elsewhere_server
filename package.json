@@ -24,6 +24,7 @@
     "express": "^4.16.4",
     "jasmine-node": "^1.16.2",
     "path": "^0.12.7",
-    "request": "^2.88.0"
+    "request": "^2.88.0",
+    "winston": "^3.2.1"
   }
 }
