@@ -1,9 +1,7 @@
 - Add morgan 
 - Add winston
-- Add correct responses in handlers
 - Add token creation
 - Instead of expecting passwords in schemas, expect tokens
-- Add password hashing
 - Set up sqlite db for user accounts
 - Add linter
 - Read from configs

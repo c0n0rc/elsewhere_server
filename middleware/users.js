@@ -16,8 +16,8 @@ exports.validateUserIDParam = function (req, res, next) {
 };
 
 // Validate request body when authenticating an existing user
-exports.validateAuthUserBody = function (req, res, next) {
-  var validate = ajv.compile(schema.validateUserBody);
+exports.validateUserReqBody = function (req, res, next) {
+  var validate = ajv.compile(schema.validateUserReqBody);
   var valid = validate(req.body);
   if (!valid) {
     res.status(422).json({ 'error': 'Error: Invalid request body fields. ' + JSON.stringify(validate.errors) });
@@ -27,8 +27,8 @@ exports.validateAuthUserBody = function (req, res, next) {
 };
 
 // Validate request body when creating a new user
-exports.validateCreateUserBody = function (req, res, next) {
-  var validate = ajv.compile(schema.validateCreateUserBody);
+exports.validateCreateUserReqBody = function (req, res, next) {
+  var validate = ajv.compile(schema.validateCreateUserReqBody);
   var valid = validate(req.body);
   if (!valid) {
     res.status(422).json({ 'error': 'Error: Invalid request body fields. ' + JSON.stringify(validate.errors) });
@@ -38,8 +38,8 @@ exports.validateCreateUserBody = function (req, res, next) {
 };
 
 // Validate request body when updating an existing user
-exports.validateUpdateUserBody = function (req, res, next) {
-  var validate = ajv.compile(schema.validateUpdateUserBody);
+exports.validateUpdateUserReqBody = function (req, res, next) {
+  var validate = ajv.compile(schema.validateUpdateUserReqBody);
   var valid = validate(req.body);
   if (!valid) {
     res.status(422).json({ 'error': 'Error: Invalid request body fields. ' + JSON.stringify(validate.errors) });
@@ -49,8 +49,8 @@ exports.validateUpdateUserBody = function (req, res, next) {
 };
 
 // Validate request body when deleting an existing user
-exports.validateDeleteUserBody = function (req, res, next) {
-  var validate = ajv.compile(schema.validateUserBody);
+exports.validateDeleteUserReqBody = function (req, res, next) {
+  var validate = ajv.compile(schema.validateUserReqBody);
   var valid = validate(req.body);
   if (!valid) {
     res.status(422).json({ 'error': 'Error: Invalid request body fields. ' + JSON.stringify(validate.errors) });

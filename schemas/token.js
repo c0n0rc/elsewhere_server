@@ -3,8 +3,8 @@ exports.getTokenBody = {
   "type": "object",
   "properties": {
     "email": { "type": "string" },
-    "password": { "type": "string" }
+    "token": { "type": "string" }
   },
   "additionalProperties": false,
-  "required": [ "email", "password" ]
+  "required": [ "email", "token" ]
 }

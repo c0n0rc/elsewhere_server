@@ -2,16 +2,18 @@ const path  = require('path');
 const express = require('express');
 const router = express.Router();
 
-const handlers = require(path.join(__dirname, '../handlers/users.js'));
-const middleware = require(path.join(__dirname, '../middleware/users.js'));
+const userMiddleware = require(path.join(__dirname, '../middleware/users.js'));
+const tokenMiddleware = require(path.join(__dirname, '../middleware/token.js'));
+
+const userHandler = require(path.join(__dirname, '../handlers/users.js'));
+const tokenHandler = require(path.join(__dirname, '../handlers/token.js'));
 
 // Update an existing user - 200 (success), 401 (not authorized), 422 (invalid body)
 router.post('/users/authenticate',
   [
-    // @TODO Validate token
-    middleware.validateAuthUserBody,
-    handlers.authenticateUser
-    // @TODO Send token
+    userMiddleware.validateUserReqBody,
+    userHandler.authenticateUser,
+    tokenHandler.createToken
   ],
   function (req, res) {
     res.status(200).json({ 'token': 'token' });
@@ -21,9 +23,9 @@ router.post('/users/authenticate',
 // Create a new user - 201 (created), 409 (conflict), 422 (invalid body)
 router.post('/users',
   [
-    middleware.validateCreateUserBody, 
-    handlers.createUser
-    // @TODO Send token
+    userMiddleware.validateCreateUserReqBody, 
+    userHandler.createUser,
+    tokenHandler.createToken
   ],
   function (req, res) {
     res.status(200).json({ 'token': 'token' });
@@ -33,10 +35,10 @@ router.post('/users',
 // Update an existing user - 200 (success), 401 (not authorized), 400 (incorrect syntax), 422 (invalid body)
 router.patch('/users/:userID',
   [
-    // @TODO Validate token
-    middleware.validateUserIDParam,
-    middleware.validateUpdateUserBody,
-    handlers.updateUser
+    tokenMiddleware.validateToken,
+    userMiddleware.validateUserIDParam,
+    userMiddleware.validateUpdateUserReqBody,
+    userHandler.updateUser
   ],
   function (req, res) {
     res.status(200).json({ 'message': 'success' });
@@ -46,10 +48,10 @@ router.patch('/users/:userID',
 // Update an existing user - 200 (success), 401 (not authorized), 400 (incorrect syntax), 422 (invalid body)
 router.delete('/users/:userID',
   [
-    // @TODO Validate token
-    middleware.validateUserIDParam,
-    middleware.validateDeleteUserBody,
-    handlers.deleteUser
+    tokenMiddleware.validateToken,
+    userMiddleware.validateUserIDParam,
+    userMiddleware.validateDeleteUserReqBody,
+    userHandler.deleteUser
   ],
   function (req, res) {
     res.status(200).json({ 'message': 'success' });

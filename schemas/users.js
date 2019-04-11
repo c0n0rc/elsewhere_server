@@ -11,7 +11,7 @@ exports.validateUserIDParam = {
 }
 
 // Schema to validate request body for basic user auth
-exports.validateUserBody = {
+exports.validateUserReqBody = {
   "type": "object",
   "properties": {
     "email": { "type": "string" },
@@ -22,7 +22,7 @@ exports.validateUserBody = {
 }
 
 // Schema to validate request body when creating a new user
-exports.validateCreateUserBody = {
+exports.validateCreateUserReqBody = {
   "type": "object",
   "properties": {
     "email": { "type": "string" },
@@ -36,7 +36,7 @@ exports.validateCreateUserBody = {
 }
 
 // Schema to validate request body when updating a new user
-exports.validateUpdateUserBody = {
+exports.validateUpdateUserReqBody = {
   "type": "object",
   "properties": {
     "email": { "type": "string" },
